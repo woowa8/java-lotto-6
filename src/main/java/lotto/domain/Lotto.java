@@ -11,10 +11,21 @@ public class Lotto {
     }
 
     private void validate(List<Integer> numbers) {
-        if (numbers.size() != 6) {
-            throw new IllegalArgumentException();
+        validateCount(numbers);
+        for(Integer number : numbers){
+            validateScope(number);
         }
     }
 
-    // TODO: 추가 기능 구현
+    private void validateCount(List<Integer> numbers) {
+        if (numbers.size() != 6) {
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 6개의 숫자여야 합니다.");
+        }
+    }
+
+    private void validateScope(Integer number) {
+        if (number < 1 || number > 45) {
+            throw new IllegalArgumentException("[ERROR] 로또 번호는 1부터 45 사이의 숫자여야 합니다.");
+        }
+    }
 }
