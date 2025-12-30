@@ -14,7 +14,6 @@ public enum WinningInformation {
     private boolean isMatchedBonus;
     private int winningPrice;
 
-    // TODO : ENUM은 기본이 private
     WinningInformation(int rank, int matchCount, boolean isMatchedBonus, int winningPrice) {
         this.rank = rank;
         this.matchCount = matchCount;
@@ -38,7 +37,6 @@ public enum WinningInformation {
         return this.winningPrice;
     }
 
-    // TODO : 등수 계산을 위한 match 로직 필요, 차후 리팩토링 예정
     public static WinningInformation getWinningInformation(int cnt, boolean haveBonus) {
         if (cnt == 6 && !haveBonus) {
             return FIRST;
